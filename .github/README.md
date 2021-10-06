@@ -1,6 +1,8 @@
 # Dotfiles
 
-Here described how to track your dotfiles.
+Here described how to track your dotfiles and my own set of dotfiles that are
+dependent on the host so that you load speceific Aliases, Environment Variables
+only on certain Hosts.
 
 This is taken partially from https://www.atlassian.com/git/tutorials/dotfiles .
 I simply moved it here in case ``Atlassian`` should stop existing at any point
@@ -13,7 +15,7 @@ This will call the script that automatically installs the
 dot files on a new system.
 
 ```bash
-
+curl -Lks https://raw.github.com/lsawade/dotfiles/main/.bin/install.sh | /bin/bash
 ```
 
 ## TL;DR
@@ -98,7 +100,7 @@ config config --local status.showUntrackedFiles no
 
 As a script
 
-```
+```bash
 git clone --bare git@github.com:lsawade/dotfiles.git $HOME/.cfg
 function config {
     /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
