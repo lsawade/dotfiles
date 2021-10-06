@@ -24,6 +24,8 @@ if [[ $HOSTNAME == "geo-lsawade19" ]]; then
     source "${ALIASDIR}/personal.sh"
     source "${STARTDIR}/personal.sh"
 
+    PROMPTUSER="itsme"
+    PROMPTHOST="mac"
 
 elif [[ $HOSTNAME == *"andes"* ]]; then
     echo "I'm on Andes"
@@ -35,6 +37,9 @@ elif [[ $HOSTNAME == *"andes"* ]]; then
     source "${ENVIRDIR}/andes.sh"
     source "${ALIASDIR}/andes.sh"
     source "${STARTDIR}/andes.sh"
+
+    PROMPTUSER="itsme"
+    PROMPTHOST="andes"
 
 
 elif [[ $HOSTNAME == *"dtn"* ]]; then
@@ -48,6 +53,9 @@ elif [[ $HOSTNAME == *"dtn"* ]]; then
     source "${ALIASDIR}/dtn.sh"
     source "${STARTDIR}/dtn.sh"
 
+    PROMPTUSER="itsme"
+    PROMPTHOST="dtn"
+
 elif [[ $HOSTNAME == *"login"* ]]; then
     echo "I'm on Summit"
     # ORNL General
@@ -59,8 +67,14 @@ elif [[ $HOSTNAME == *"login"* ]]; then
     source "${ALIASDIR}/summit.sh"
     source "${STARTDIR}/summit.sh"
 
+    PROMPTUSER="itsme"
+    PROMPTHOST="summit"
+
 else
     echo "Host not defined. Only general dotfiles loaded."
+
+    PROMPTUSER=${USER}
+    PROMPTHOST="${HOSTNAME}"
 
 fi
 
@@ -73,9 +87,6 @@ fi
  export LSCOLORS=Exfxbxdxcxegedabagacad
 # --------------------------------------------------
 
-# ------ Prompt settings  --------------------------
-# export PS1="[\[\e[1;38;5;125m\]\u\[\e[m\] @ \[\e[1;38;5;28m\]\W\[\e[m\]]\$ "
-#---------------------------------------------------
  
 # Check whether the shell is in emacs --> emacs cant handle the PROMPT command
 PROMPT='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
@@ -85,7 +96,6 @@ if [ -z "$INSIDE_EMACS" ]; then
 else
     export PROMPT_COMMAND=''
 fi
-
 
 
 # Prompt settings
