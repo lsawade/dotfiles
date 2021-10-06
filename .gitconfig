@@ -1,0 +1,36 @@
+[user]
+	name = Lucas Sawade
+	email = lsawade@princeton.edu
+[credential]
+	helper = cache --timeout=3600
+[alias]
+    aa = add --all
+    bv = branch -vv
+    ba = branch -ra
+    bd = branch -d
+    ca = commit --amend
+    cb = checkout -b
+    cm = commit -a --amend -C HEAD
+    ci = commit -a -v
+    co = checkout
+    di = diff
+    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+    lg = log --pretty=format:"%C(yellow)%h\\ %C(green)%ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short --graph
+    ls = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+    mm = merge --no-ff
+    st = status --short --branch
+    tg = tag -a
+    pu = push --tags
+    un = reset --hard HEAD
+    uh = reset --hard HEAD^
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+[branch]
+    autosetuprebase = always
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
