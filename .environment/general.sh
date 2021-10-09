@@ -3,12 +3,12 @@
 # HOSTS & USERNAME
 # Princeton
 NETID="lsawade"
-ADROIT="adroit.princeton.edu"
-TIGERCPU="tigercpu.princeton.edu"
-TIGERGPU="tigergpu.princeton.edu"
-TRAVERSE="traverse8.princeton.edu"
+ADROIT="adroit"
+TIGERCPU="tigercpu"
+TIGERGPU="tigergpu"
+TRAVERSE="traverse8"
 VRIENTIUS="128.112.20.221"
-CLOVER="clover.princeton.edu"
+CLOVER="clover"
 TIGRESSGATEWAY="tigressgateway.princeton.edu"
 
 # Oak Ridge National Lab

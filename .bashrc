@@ -70,6 +70,16 @@ elif [[ $HOSTNAME == *"login"* ]]; then
     PROMPTUSER="itsme"
     PROMPTHOST="summit"
 
+
+elif [[ $HOSTNAME == *"tiger"* ]]; then
+    echo "I'm on tiger"
+    # ORNL General
+    source "${ENVIRDIR}/tiger.sh"
+    source "${ALIASDIR}/tiger.sh"
+
+    PROMPTUSER="itsme"
+    PROMPTHOST=$(echo $HOSTNAME | awk --field-separator='.' '{print $1}')
+
 else
     echo "Host not defined. Only general dotfiles loaded."
 
