@@ -12,6 +12,7 @@ alias mv='mv -i'
 alias rm='rm -i'
 
 # convenience redefinitions
+alias enw='emacs -nw'
 alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 alias ..='cd ..'
 alias ...='cd ...'

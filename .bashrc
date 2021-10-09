@@ -76,6 +76,7 @@ elif [[ $HOSTNAME == *"tiger"* ]]; then
     # ORNL General
     source "${ENVIRDIR}/tiger.sh"
     source "${ALIASDIR}/tiger.sh"
+    source "${STARTDIR}/tiger.sh"
 
     PROMPTUSER="itsme"
     PROMPTHOST=$(echo $HOSTNAME | awk --field-separator='.' '{print $1}')
