@@ -14,6 +14,15 @@
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
 (package-initialize)
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+;; load emacs 24's package system. Add MELPA repository.
+(when (>= emacs-major-version 24)
+  (require 'package)
+  (add-to-list
+   'package-archives
+   ;; '("melpa" . "http://stable.melpa.org/packages/") ; many packages won't show if using stable
+   '("melpa" . "https://melpa.org/packages/")
+   t))
 
 (add-to-list 'comint-output-filter-functions 'ansi-color-process-output)  
 
@@ -52,7 +61,10 @@
 ;; Toggle autofillMode (hardlinewarp)
 (global-set-key (kbd "C-c q") 'auto-fill-mode)
 
-;; Turn on auto complete
+
+;; YAML FILE support
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
 
 
 ;; Check whether auctex is installed	
@@ -108,7 +120,7 @@
 (setq make-backup-files nil) ; stop creating ~ files
 
 ;; enable matlab mode
-(add-to-list 'load-path "~/.emacs.d/lisp")
+
 (autoload 'matlab-mode "matlab" "Enter Matlab mode." t)
   (setq auto-mode-alist (cons '("\\.m\\'" . matlab-mode) auto-mode-alist))
   (autoload 'matlab-shell "matlab" "Interactive Matlab mode." t)
