@@ -7,6 +7,7 @@ alias            tigergpu="ssh ${NETID}@${TIGERGPU}"
 alias           vrientius="ssh ${NETID}@${VRIENTIUS}"
 alias         traverse="ssh -X ${NETID}@${TRAVERSE}"
 alias        clover="ssh -v -X ${NETID}@${CLOVER}"
+alias      tigressdata="ssh -X ${NETID}@${TIGRESSDATA}"
 alias tigressgateway="ssh -NCf ${NETID}@${TIGRESSGATEWAY}"
 
 # ORNL
