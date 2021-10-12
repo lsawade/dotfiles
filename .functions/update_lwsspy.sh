@@ -3,27 +3,19 @@
 function ulwsspy() {
 
 usage="
+Usage: ulwsspy <DIRECTORY> <BRANCH>
 
 Updates all packages of lwsspy that are located in a single directory
+WARNING: Behaviour is unsafe/upredictable if branches aren't consistent across
+         the directory.
 
-
-Usage:
-------
-
-ulwsspy <DIRECTORY> <BRANCH>
-
-
-Variables:
-----------
-
-DIRECTORY:  Directory where all lwsspy packages are installed.
-
-BRANCH:     Git branch to update.
-
+  DIRECTORY:  Directory where all lwsspy packages are installed.
+  BRANCH:     Git branch to update.
 
 ---
+Author: Lucas Sawade
+Last modified: 2021.10.12 14.21
 
-WARNING: Behaviour is unsafe/upredictable if branches aren't consistent.
 "
 
 Nexpect=2
