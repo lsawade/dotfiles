@@ -28,7 +28,7 @@ WARNING: Behaviour is unsafe/upredictable if branches aren't consistent.
 
 Nexpect=2
 
-if [ -z $1 ] || [ "${1}" == "-h" ] || [ "${1}" == "--help" ] || [ $# -gt $Nexpect ]
+if [ -z $1 ] || [ "${1}" == "-h" ] || [ "${1}" == "--help" ] || [ $# -ne $Nexpect ]
 then
     echo -e "$usage"
     exit
