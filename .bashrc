@@ -13,6 +13,7 @@ source "${PATHSDIR}/general.sh"
 source "${ENVIRDIR}/general.sh"
 source "${FUNCTDIR}/general.sh"
 source "${ALIASDIR}/general.sh"
+source "${STARTDIR}/general.sh"
 
 # Setting Host specific 
 if [[ $HOSTNAME == "geo-lsawade19" ]]; then
@@ -87,8 +88,6 @@ else
     PROMPTHOST="${HOSTNAME}"
 
 fi
-
-source ${STARTDIR}/general.sh
 
 
 # Prompt settings

@@ -80,10 +80,10 @@ __powerline() {
         # Related fix in git-bash: https://github.com/git/git/blob/9d77b0405ce6b471cb5ce3a904368fc25e55643d/contrib/completion/git-prompt.sh#L324
         if shopt -q promptvars; then
             __powerline_git_info="$(__git_info)"
-            local git="$COLOR_GIT\${__powerline_git_info}${RESET}"
+            local git="${COLOR_GIT}${__powerline_git_info}${RESET}"
         else
             # promptvars is disabled. Avoid creating unnecessary env var.
-            local git="$COLOR_GIT\$(__git_info)${RESET}"
+            local git="${COLOR_GIT}$(__git_info)${RESET}"
         fi
 	
 	if [ -z "$CONDA_DEFAULT_ENV" ]
@@ -96,7 +96,7 @@ __powerline() {
     }
     PROMPT_DIRTRIM=3
     PROMPT_COMMAND="ps1${PROMPT_COMMAND:+;$PROMPT_COMMAND}"
-    
+
 }
 
 __powerline
