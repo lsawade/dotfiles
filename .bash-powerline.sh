@@ -21,7 +21,7 @@ __powerline() {
     if [[ -z "$PS_SYMBOL" ]]; then
       case "$(uname)" in
           Darwin)   PS_SYMBOL='';;
-          Linux)    PS_SYMBOL='🐧';;
+          Linux)    PS_SYMBOL='$';;
           *)        PS_SYMBOL='%';;
       esac
     fi
@@ -58,16 +58,16 @@ __powerline() {
         done < <($git_eng status --porcelain --branch 2>/dev/null)  # note the space between the two <
 
         # print the git branch segment without a trailing newline
-        printf " $ref$marks"
+        printf "$ref$marks"
     }
 
     ps1() {
         # Check the exit code of the previous command and display different
         # colors in the prompt accordingly. 
         if [ $? -eq 0 ]; then
-            local symbol="$COLOR_SUCCESS $PS_SYMBOL $RESET"
+            local symbol="${COLOR_SUCCESS} ${PS_SYMBOL} ${RESET}"
         else
-            local symbol="$COLOR_FAILURE $PS_SYMBOL $RESET"
+            local symbol="${COLOR_FAILURE} ${PS_SYMBOL} ${RESET}"
         fi
 
         # local cwd="$COLOR_CWD\w$RESET"
@@ -80,22 +80,23 @@ __powerline() {
         # Related fix in git-bash: https://github.com/git/git/blob/9d77b0405ce6b471cb5ce3a904368fc25e55643d/contrib/completion/git-prompt.sh#L324
         if shopt -q promptvars; then
             __powerline_git_info="$(__git_info)"
-            local git="$COLOR_GIT\${__powerline_git_info}$RESET"
+            local git="$COLOR_GIT\${__powerline_git_info}${RESET}"
         else
             # promptvars is disabled. Avoid creating unnecessary env var.
-            local git="$COLOR_GIT$(__git_info)$RESET"
+            local git="$COLOR_GIT\$(__git_info)${RESET}"
         fi
 	
 	if [ -z "$CONDA_DEFAULT_ENV" ]
 	then
-	    PS1="$cwd$git$symbol"
+	    PS1="${cwd}${git}${symbol}"
 	else
-	    PS1="($CONDA_DEFAULT_ENV) $cwd$git$symbol"
+	    PS1="($CONDA_DEFAULT_ENV)${cwd}${git}${symbol}"
 	fi
         
     }
 
-    PROMPT_COMMAND="ps1${PROMPT_COMMAND:+; $PROMPT_COMMAND}"
+    # PROMPT_COMMAND="ps1${PROMPT_COMMAND:+;$PROMPT_COMMAND}"
+    PROMPT_COMMAND="ps1"
 }
 
 __powerline
