@@ -31,7 +31,7 @@ Nexpect=2
 if [ -z $1 ] || [ "${1}" == "-h" ] || [ "${1}" == "--help" ] || [ $# -ne $Nexpect ]
 then
     echo -e "$usage"
-    exit
+    return 0
 fi
 
 
