@@ -14,7 +14,6 @@ source "${ENVIRDIR}/general.sh"
 source "${FUNCTDIR}/general.sh"
 source "${ALIASDIR}/general.sh"
 
-
 # Setting Host specific 
 if [[ $HOSTNAME == "geo-lsawade19" ]]; then
     echo "I'm on the mac"
@@ -89,24 +88,7 @@ else
 
 fi
 
-
-# Terminal settings
-
-#------ Colour Xterms/VI --------------------------
- export TERM=xterm-256color
- export CLICOLOR=true
- export LSCOLORS=Exfxbxdxcxegedabagacad
-# --------------------------------------------------
-
- 
-# Check whether the shell is in emacs --> emacs cant handle the PROMPT command
-PROMPT='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
-
-if [ -z "$INSIDE_EMACS" ]; then
-    export PROMPT_COMMAND="${PROMPT}"
-else
-    export PROMPT_COMMAND=''
-fi
+source ${STARTDIR}/general.sh
 
 
 # Prompt settings
