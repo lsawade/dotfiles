@@ -1,3 +1,3 @@
 #!/bin/bash
 
-SCRATCHDIR=/scratch/gpfs/lsawade
+export SCRATCHDIR=/scratch/gpfs/lsawade

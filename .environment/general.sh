@@ -1,23 +1,26 @@
 #!/bin/bash
 
+
+
 # HOSTS & USERNAME
 # Princeton
-NETID="lsawade"
-ADROIT="adroit"
-TIGERCPU="tigercpu"
-TIGERGPU="tigergpu"
-TRAVERSE="traverse8"
-TIGRESSDATA="tigressdata"
-VRIENTIUS="128.112.20.221"
-CLOVER="clover"
-TIGRESSGATEWAY="tigressgateway.princeton.edu"
+export NETID="lsawade"
+export ADROIT="adroit"
+export TIGERCPU="tigercpu"
+export TIGERGPU="tigergpu"
+export TRAVERSE="traverse8"
+export TIGRESSDATA="tigressdata"
+export VRIENTIUS="128.112.20.221"
+export CLOVER="clover"
+export TIGRESSGATEWAY="tigressgateway.princeton.edu"
 
 # Oak Ridge National Lab
-ORNLUSER="lsawade"
-ORNLHOME="home.css.ornl.gov"
-SUMMIT="summit.olcf.ornl.gov"
-ANDES="andes.olcf.ornl.gov"
-DTN="dtn.ccs.ornl.gov"
+export ORNLUSER="lsawade"
+export ORNLHOME="home.css.ornl.gov"
+export SUMMIT="summit.olcf.ornl.gov"
+export ANDES="andes.olcf.ornl.gov"
+export DTN="dtn.ccs.ornl.gov"
+
 
 # Source eternal history to set eternal history
 source ${HOME}/.environment/eternalhistory.sh

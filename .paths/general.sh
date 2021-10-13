@@ -1,3 +1,3 @@
 #!/bin/bash
 
-PATH=$PATH:${HOME}/.lisp
+export PATH=$PATH:${HOME}/.lisp

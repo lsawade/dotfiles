@@ -95,7 +95,7 @@ __powerline() {
         
     }
     PROMPT_DIRTRIM=3
-    PROMPT_COMMAND="ps1${PROMPT_COMMAND:+;$PROMPT_COMMAND}"
+    PROMPT_COMMAND="ps1${PROMPT_COMMAND:+ ;$PROMPT_COMMAND}"
     # PROMPT_COMMAND="ps1"
 }
 

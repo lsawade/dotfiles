@@ -13,11 +13,9 @@ source "${PATHSDIR}/general.sh"
 source "${ENVIRDIR}/general.sh"
 source "${FUNCTDIR}/general.sh"
 source "${ALIASDIR}/general.sh"
-source "${STARTDIR}/general.sh"
 
 # Setting Host specific 
 if [[ $HOSTNAME == "geo-lsawade19" ]]; then
-    echo "I'm on the mac"
     source "${PATHSDIR}/personal.sh"
     source "${ENVIRDIR}/personal.sh"
     source "${FUNCTDIR}/personal.sh"
@@ -28,7 +26,6 @@ if [[ $HOSTNAME == "geo-lsawade19" ]]; then
     PROMPTHOST="mac"
 
 elif [[ $HOSTNAME == *"andes"* ]]; then
-    echo "I'm on Andes"
     # ORNL General
     source "${ENVIRDIR}/ornl.sh"
     source "${ALIASDIR}/ornl.sh"
@@ -43,7 +40,7 @@ elif [[ $HOSTNAME == *"andes"* ]]; then
 
 
 elif [[ $HOSTNAME == *"dtn"* ]]; then
-    echo "I'm on a Data Transfer Node"
+
     # ORNL General
     source "${ENVIRDIR}/ornl.sh"
     source "${ALIASDIR}/ornl.sh"
@@ -82,13 +79,14 @@ elif [[ $HOSTNAME == *"tiger"* ]]; then
     PROMPTHOST=$(echo $HOSTNAME | awk --field-separator='.' '{print $1}')
 
 else
-    echo "Host not defined. Only general dotfiles loaded."
-
+    
     PROMPTUSER=${USER}
     PROMPTHOST="${HOSTNAME}"
 
 fi
 
+# Has to be run here because Prompthost and user aren't defined prior
+source "${STARTDIR}/general.sh"
 
 # Prompt settings
 source ~/.bash-powerline.sh

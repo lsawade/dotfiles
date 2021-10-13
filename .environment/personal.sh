@@ -1,4 +1,6 @@
 #!/bin/bash
 
+# export so that default is zshell warning disappears
+export BASH_SILENCE_DEPRECATION_WARNING=1
 export TMPDIR=/tmp
-PYTHONSTARTUP="${HOME}/lwsspy/startupfiles/python.py"
+export PYTHONSTARTUP="${HOME}/lwsspy/startupfiles/python.py"
