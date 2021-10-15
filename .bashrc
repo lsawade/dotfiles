@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Return if shell is not running interactively
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
 # Directories for organized dot files
 ENVIRDIR="${HOME}/.environment"
 FUNCTDIR="${HOME}/.functions"
