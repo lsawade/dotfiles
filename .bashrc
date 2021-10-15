@@ -60,7 +60,7 @@ elif [[ $HOSTNAME == *"dtn"* ]]; then
     PROMPTHOST="dtn"
 
 elif [[ $HOSTNAME == *"login"* ]]; then
-    echo "I'm on Summit"
+
     # ORNL General
     source "${ENVIRDIR}/ornl.sh"
     source "${ALIASDIR}/ornl.sh"
