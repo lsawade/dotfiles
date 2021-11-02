@@ -5,6 +5,7 @@
 # HOSTS & USERNAME
 # Princeton
 export NETID="lsawade"
+export CRESSIDA="cressida"
 export ADROIT="adroit"
 export TIGERCPU="tigercpu"
 export TIGERGPU="tigergpu"
