@@ -88,7 +88,7 @@ elif [[ $HOSTNAME == *"vrientius"* ]]; then
 
     source "${PATHSDIR}/personal.sh"
     source "${ENVIRDIR}/personal.sh"
-    source "${FUNCTDIR}/personal.sh"
+    source "${FUNCTDIR}/vrientius.sh"
     source "${ALIASDIR}/personal.sh"
     source "${STARTDIR}/personal.sh"
 
