@@ -1,5 +1,16 @@
 #!/bin/bash
 
+# Run base bashrc -- I found out the hard way that this sets the
+# $ shopt -s checkwindowsize
+# This is necessary if you have a varying prompt, say one
+# that indicates your git branch and/or conda env, because it varies
+# the line length expected after the prompt. 'checkwindowsize` will
+# will compensate for any changes in the prompt.
+if [ -e  /etc/bashrc ]
+then
+    source /etc/bashrc
+fi
+
 # Return if shell is not running interactively
 case $- in
     *i*) ;;
