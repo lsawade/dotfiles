@@ -84,6 +84,18 @@ elif [[ $HOSTNAME == *"tiger"* ]]; then
     PROMPTUSER="itsme"
     PROMPTHOST=$(echo $HOSTNAME | awk --field-separator='.' '{print $1}')
 
+
+
+elif [[ $HOSTNAME == *"traverse"* ]]; then
+
+    # ORNL General
+    source "${ENVIRDIR}/traverse.sh"
+    source "${ALIASDIR}/traverse.sh"
+    source "${STARTDIR}/traverse.sh"
+
+    PROMPTUSER="itsme"
+    PROMPTHOST="traverse"
+
 else
     
     PROMPTUSER=${USER}

@@ -6,12 +6,12 @@
 __powerline() {
     # Colorscheme
     readonly RESET='\[\033[m\]'
-    readonly COLOR_PINK='\[\033[1;38;5;125m\]'
-    readonly COLOR_HOST='\[\033[1;38;5;55m\]' # blue
-    readonly COLOR_CWD='\[\033[0;32m\]' # blue
-    readonly COLOR_GIT='\[\033[0;36m\]' # cyan
-    readonly COLOR_SUCCESS='\[\033[0;32m\]' # green
-    readonly COLOR_FAILURE='\[\033[0;31m\]' # red
+    readonly COLOR_PINK='\[\033[1;38;5;208m\]' # reddish
+    readonly COLOR_HOST='\[\033[1;38;5;32m\]' # gray
+    readonly COLOR_CWD='\[\033[1;38;5;104m\]' # green
+    readonly COLOR_GIT='\[\033[1;38;5;5m\]' # cyan
+    readonly COLOR_SUCCESS='\[\033[1;38;5;2m\]' # green
+    readonly COLOR_FAILURE='\[\033[1;38;5;1m\]' # red
 
     readonly SYMBOL_GIT_BRANCH='⑂'
     readonly SYMBOL_GIT_MODIFIED='+'
