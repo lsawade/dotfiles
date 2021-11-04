@@ -75,8 +75,8 @@ elif [[ $HOSTNAME == *"login"* ]]; then
 
 
 elif [[ $HOSTNAME == *"tiger"* ]]; then
-    echo "I'm on tiger"
-    # ORNL General
+
+    # Tiger General
     source "${ENVIRDIR}/tiger.sh"
     source "${ALIASDIR}/tiger.sh"
     source "${STARTDIR}/tiger.sh"
