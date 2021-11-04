@@ -84,7 +84,16 @@ elif [[ $HOSTNAME == *"tiger"* ]]; then
     PROMPTUSER="itsme"
     PROMPTHOST=$(echo $HOSTNAME | awk --field-separator='.' '{print $1}')
 
+elif [[ $HOSTNAME == *"vrientius"* ]]; then
 
+    source "${PATHSDIR}/personal.sh"
+    source "${ENVIRDIR}/personal.sh"
+    source "${FUNCTDIR}/personal.sh"
+    source "${ALIASDIR}/personal.sh"
+    source "${STARTDIR}/personal.sh"
+
+    PROMPTUSER="itsme"
+    PROMPTHOST="vrientius"
 
 elif [[ $HOSTNAME == *"traverse"* ]]; then
 
@@ -109,4 +118,20 @@ source "${STARTDIR}/general.sh"
 # Prompt settings
 source ~/.bash-powerline.sh
 
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/lsawade/.anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/lsawade/.anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/lsawade/.anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/lsawade/.anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
