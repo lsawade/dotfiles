@@ -35,9 +35,6 @@ packages=( lwsspy lwsspy.seismo lwsspy.gcmt3d)
 # Save current location
 CURRENTDIR=$(pwd)
 
-# Move to new location
-cd ${LWSSPYDIR}
-
 for pack in "${packages[@]}"
 do
     echo "${pack}"

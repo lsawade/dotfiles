@@ -32,7 +32,7 @@ source "${FUNCTDIR}/general.sh"
 source "${ALIASDIR}/general.sh"
 
 # Setting Host specific 
-if [[ $HOSTNAME == "geo-lsawade19" ]]; then
+if [[ $HOSTNAME == "geo-lsawade19" ]] || [[ $HOSTNAME == "Mis-MacBook-Pro.local" ]] || [[ $HOSTNAME == "vpn"*"princeton"* ]]; then
     source "${PATHSDIR}/personal.sh"
     source "${ENVIRDIR}/personal.sh"
     source "${FUNCTDIR}/personal.sh"
@@ -130,19 +130,24 @@ source "${STARTDIR}/general.sh"
 source ~/.bash-powerline.sh
 
 
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/lsawade/.anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
+if [ -e opt/miniconda3/bin/activate ];
+then
+    source opt/miniconda3/bin/activate
 else
-    if [ -f "/home/lsawade/.anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/lsawade/.anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/lsawade/.anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
+    # >>> conda initialize >>>
+    # !! Contents within this block are managed by 'conda init' !!
+    __conda_setup="$('/home/lsawade/.anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+    if [ $? -eq 0 ]; then
+	eval "$__conda_setup"
+    else
+	if [ -f "/home/lsawade/.anaconda3/etc/profile.d/conda.sh" ]; then
+	    . "/home/lsawade/.anaconda3/etc/profile.d/conda.sh"
+	else
+	    export PATH="/home/lsawade/.anaconda3/bin:$PATH"
+	fi
+    fi
+    unset __conda_setup
+    # <<< conda initialize <<<
+
+fi
