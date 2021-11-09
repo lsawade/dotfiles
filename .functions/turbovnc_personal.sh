@@ -1,6 +1,6 @@
 #!/bin/bash
 
-turbovrientius() {
+turbo-vrientius() {
     if [ "$#" -eq 0 ]; then
         echo "\nMissing session number\n";
     else
