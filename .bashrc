@@ -98,9 +98,9 @@ elif [[ $HOSTNAME == *"tiger"* ]]; then
 elif [[ $HOSTNAME == *"vrientius"* ]]; then
 
     source "${PATHSDIR}/personal.sh"
-    source "${ENVIRDIR}/personal.sh"
+    source "${ENVIRDIR}/vrientius.sh"
+    source "${ALIASDIR}/vrientius.sh"
     source "${FUNCTDIR}/vrientius.sh"
-    source "${ALIASDIR}/personal.sh"
     source "${STARTDIR}/personal.sh"
 
     PROMPTUSER="itsme"
