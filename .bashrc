@@ -130,3 +130,4 @@ source "${STARTDIR}/general.sh"
 # Prompt settings
 source ~/.bash-powerline.sh
 
+
