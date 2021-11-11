@@ -4,7 +4,7 @@
 alias             addy="ssh -Y ${NETID}@${ADROIT}"
 alias            tigercpu="ssh ${NETID}@${TIGERCPU}"
 alias            tigergpu="ssh ${NETID}@${TIGERGPU}"
-alias           vrientius="ssh ${NETID}@${VRIENTIUS}"
+alias           vrientius="ssh -Y ${NETID}@${VRIENTIUS}"
 alias            cressida="ssh ${NETID}@${CRESSIDA}"
 alias         traverse="ssh -X ${NETID}@${TRAVERSE}"
 alias        clover="ssh -v -X ${NETID}@${CLOVER}"

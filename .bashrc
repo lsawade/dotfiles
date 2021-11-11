@@ -32,7 +32,7 @@ source "${FUNCTDIR}/general.sh"
 source "${ALIASDIR}/general.sh"
 
 # Setting Host specific 
-if [[ $HOSTNAME == "geo-lsawade19" ]]; then
+if [[ $HOSTNAME == "geo-lsawade19" ]] || [[ $HOSTNAME == "Mis-MacBook-Pro.local" ]] || [[ $HOSTNAME == "vpn"*"princeton"* ]]; then
     source "${PATHSDIR}/personal.sh"
     source "${ENVIRDIR}/personal.sh"
     source "${FUNCTDIR}/personal.sh"
@@ -95,7 +95,16 @@ elif [[ $HOSTNAME == *"tiger"* ]]; then
     PROMPTUSER="itsme"
     PROMPTHOST=$(echo $HOSTNAME | awk --field-separator='.' '{print $1}')
 
+elif [[ $HOSTNAME == *"vrientius"* ]]; then
 
+    source "${PATHSDIR}/personal.sh"
+    source "${ENVIRDIR}/personal.sh"
+    source "${FUNCTDIR}/vrientius.sh"
+    source "${ALIASDIR}/personal.sh"
+    source "${STARTDIR}/vrientius.sh"
+
+    PROMPTUSER="itsme"
+    PROMPTHOST="vrientius"
 
 elif [[ $HOSTNAME == *"traverse"* ]]; then
 
@@ -119,6 +128,4 @@ source "${STARTDIR}/general.sh"
 
 # Prompt settings
 source ~/.bash-powerline.sh
-
-
 
