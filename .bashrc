@@ -6,6 +6,9 @@ case $- in
       *) return;;
 esac
 
+# Some shell options
+# shopt -s direxpand  # Expands environment variables upon tab completion 
+
 # Directories for organized dot files
 ENVIRDIR="${HOME}/.environment"
 FUNCTDIR="${HOME}/.functions"
