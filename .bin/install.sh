@@ -1,5 +1,6 @@
 #!/bin/bash
 
+set -e
 
 git clone --bare git@github.com:lsawade/dotfiles.git $HOME/.cfg
 function config {

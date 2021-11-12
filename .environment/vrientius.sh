@@ -4,4 +4,3 @@
 export BASH_SILENCE_DEPRECATION_WARNING=1
 export TMPDIR=/tmp
 export PYTHONSTARTUP="${HOME}/lwsspy/lwsspy/startupfiles/python.py"
-export DISPLAY=:0

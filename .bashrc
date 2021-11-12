@@ -1,5 +1,16 @@
 #!/bin/bash
 
+# Run base bashrc -- I found out the hard way that this sets the
+# $ shopt -s checkwindowsize
+# This is necessary if you have a varying prompt, say one
+# that indicates your git branch and/or conda env, because it varies
+# the line length expected after the prompt. 'checkwindowsize` will
+# will compensate for any changes in the prompt.
+if [ -e  /etc/bashrc ]
+then
+    source /etc/bashrc
+fi
+
 # Return if shell is not running interactively
 case $- in
     *i*) ;;
@@ -24,7 +35,7 @@ source "${FUNCTDIR}/general.sh"
 source "${ALIASDIR}/general.sh"
 
 # Setting Host specific 
-if [[ $HOSTNAME == "geo-lsawade19" ]]; then
+if [[ $HOSTNAME == "geo-lsawade19" ]] || [[ $HOSTNAME == "Mis-MacBook-Pro.local" ]] || [[ $HOSTNAME == "vpn"*"princeton"* ]]; then
     source "${PATHSDIR}/personal.sh"
     source "${ENVIRDIR}/personal.sh"
     source "${FUNCTDIR}/personal.sh"
@@ -78,14 +89,36 @@ elif [[ $HOSTNAME == *"login"* ]]; then
 
 
 elif [[ $HOSTNAME == *"tiger"* ]]; then
-    echo "I'm on tiger"
-    # ORNL General
+
+    # Tiger General
     source "${ENVIRDIR}/tiger.sh"
     source "${ALIASDIR}/tiger.sh"
     source "${STARTDIR}/tiger.sh"
 
     PROMPTUSER="itsme"
     PROMPTHOST=$(echo $HOSTNAME | awk --field-separator='.' '{print $1}')
+
+elif [[ $HOSTNAME == *"vrientius"* ]]; then
+
+    source "${PATHSDIR}/personal.sh"
+    source "${ENVIRDIR}/vrientius.sh"
+    source "${ALIASDIR}/vrientius.sh"
+    source "${FUNCTDIR}/vrientius.sh"
+    source "${ALIASDIR}/personal.sh"
+    source "${STARTDIR}/vrientius.sh"
+
+    PROMPTUSER="itsme"
+    PROMPTHOST="vrientius"
+
+elif [[ $HOSTNAME == *"traverse"* ]]; then
+
+    # ORNL General
+    source "${ENVIRDIR}/traverse.sh"
+    source "${ALIASDIR}/traverse.sh"
+    source "${STARTDIR}/traverse.sh"
+
+    PROMPTUSER="itsme"
+    PROMPTHOST="traverse"
 
 else
     
