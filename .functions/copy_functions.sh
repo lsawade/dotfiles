@@ -34,6 +34,9 @@ function getevent {
     rsync -av --exclude='synt' lsawade@dtn.ccs.ornl.gov:$1 $2
 }
 
+function sync-stats {
+    rsync -av --exclude='database_measurement*.pkl' lsawade@dtn.ccs.ornl.gov:$1/ $2
+}
 
 # Copying to Clover
 function scpToClv()
