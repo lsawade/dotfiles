@@ -1,6 +1,7 @@
 #!/bin/bash
 
-
+# Input RC
+export INPUTRC=~/.inputrc
 
 # HOSTS & USERNAME
 # Princeton
@@ -25,3 +26,4 @@ export DTN="dtn.ccs.ornl.gov"
 
 # Source eternal history to set eternal history
 source ${HOME}/.environment/eternalhistory.sh
+
