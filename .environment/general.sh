@@ -18,7 +18,7 @@ export TIGRESSGATEWAY="tigressgateway.princeton.edu"
 
 # Oak Ridge National Lab
 export ORNLUSER="lsawade"
-export ORNLHOME="home.css.ornl.gov"
+export ORNLHOME="home.ccs.ornl.gov"
 export SUMMIT="summit.olcf.ornl.gov"
 export ANDES="andes.olcf.ornl.gov"
 export DTN="dtn.ccs.ornl.gov"
