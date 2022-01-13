@@ -88,7 +88,7 @@ elif [[ $HOSTNAME == *"login"* ]]; then
     PROMPTHOST="summit"
 
 
-elif [[ $HOSTNAME == *"tiger"* ]]; then
+elif [[ $HOSTNAME == *"tiger"* ]] || [[ $HOSTNAME == *"tigressdata"* ]]; then
 
     # Tiger General
     source "${ENVIRDIR}/tiger.sh"
@@ -97,6 +97,7 @@ elif [[ $HOSTNAME == *"tiger"* ]]; then
 
     PROMPTUSER="itsme"
     PROMPTHOST=$(echo $HOSTNAME | awk --field-separator='.' '{print $1}')
+
 
 elif [[ $HOSTNAME == *"vrientius"* ]]; then
 
