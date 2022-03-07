@@ -90,7 +90,7 @@ __powerline() {
 	then
 	    PS1="${cwd}${userhost}${git}${symbol}"
 	else
-	    PS1="${cwd}($CONDA_DEFAULT_ENV)${userhost}${git}${symbol}"
+	    PS1="${cwd}($CONDA_DEFAULT_ENV) ${userhost}${git}${symbol}"
 	fi
         
     }
