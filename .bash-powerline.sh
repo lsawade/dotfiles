@@ -13,7 +13,7 @@ __powerline() {
     readonly COLOR_SUCCESS='\[\033[1;38;5;2m\]' # green
     readonly COLOR_FAILURE='\[\033[1;38;5;1m\]' # red
 
-    readonly SYMBOL_GIT_BRANCH='Y '
+    readonly SYMBOL_GIT_BRANCH='|/-'
     readonly SYMBOL_GIT_MODIFIED='+'
     readonly SYMBOL_GIT_PUSH='^'
     readonly SYMBOL_GIT_PULL='v'
