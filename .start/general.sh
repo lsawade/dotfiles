@@ -9,11 +9,12 @@
 # --------------------------------------------------
 
 
-# This is just for the terminal window title I don't 
-# quite understand how it works...
+# CAPITALIZING THE HOSTNAME
 PROMPTHOSTCAP=$(echo ${PROMPTHOST} | tr [:lower:] [:upper:])
-PROMPT='echo -ne "\033]0; ${PROMPTHOSTCAP}: ${PWD}\a"'
 
+# Adding this to the PROMPT_COMMAND to change the title of the
+# Terminal window to "<HOSTNAME>: /path/to/cwd
+PROMPT='echo -ne "\033]0; ${PROMPTHOSTCAP}: ${PWD}\a"'
 
 # Check whether the shell is in emacs --> emacs cant handle the PROMPT command
 if [ -z "$INSIDE_EMACS" ]; then
