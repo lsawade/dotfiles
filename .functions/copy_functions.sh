@@ -31,7 +31,7 @@ function sum2it {
 }
 
 function getevent {
-    rsync -av --exclude='synt' lsawade@dtn.ccs.ornl.gov:$1 $2
+    rsync -av --exclude='simu' lsawade@dtn.ccs.ornl.gov:$1 $2
 }
 
 function sync-stats {
