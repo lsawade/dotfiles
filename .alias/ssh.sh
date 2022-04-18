@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# General
+alias rssh="ssh -F /dev/null"
+
 # Princeton
 alias             addy="ssh -Y ${NETID}@${ADROIT}"
 alias            tigercpu="ssh ${NETID}@${TIGERCPU}"
@@ -16,3 +19,4 @@ alias summithome="ssh ${ORNLUSER}@${ORNLHOME}"
 alias     summit="ssh ${ORNLUSER}@${SUMMIT}"
 alias      andes="ssh ${ORNLUSER}@${ANDES}"
 alias        dtn="ssh ${ORNLUSER}@${DTN}"
+
