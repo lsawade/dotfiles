@@ -1,3 +1,5 @@
+
+;; -*- mode: elisp -*-
 ;; translate control sequences as text is inserted in shell mode
 ;; ____________________________________________________________________________
 ;; Aquamacs custom-file warning:
@@ -24,7 +26,67 @@
    '("melpa" . "https://melpa.org/packages/")
    t))
 
+;;________________ WINDOW SIZE & SETUP ________________________________________
+
+
+;; (when window-system
+;;   (set-frame-position (selected-frame) 0 0)
+;;   (set-frame-size (selected-frame) 91 63))
+
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:height 160
+ :family "Source Code Pro")))))
+
+;; ____________________________________________________________________________
+
+
+;;________________ ORG MODE ___________________________________________________
+
+;; Disable the splash screen (to enable it agin, replace the t with 0)
+(setq inhibit-splash-screen t)
+
+;; Enable transient mark mode
+(transient-mark-mode 1)
+
+;;;;Org mode configuration
+;; Enable Org mode
+(require 'org)
+;; Make Org mode work with files ending in .org
+;; (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+;; The above is the default in recent emacsen
+
 (add-to-list 'comint-output-filter-functions 'ansi-color-process-output)  
+
+;; Todo keywords. Change these to your liking
+  (setq org-todo-keywords
+        '((sequence "TODO(t)" "NEXT(n)" "WAITING(w)" "DISTRACTION"  "|" "DONE(d)" "CANCELLED(c)")))
+
+
+;; Keybindings
+(global-set-key (kbd "C-c l") #'org-store-link)
+(global-set-key (kbd "C-c a") #'org-agenda)
+(global-set-key (kbd "C-c c") #'org-capture)
+(global-set-key (kbd "C-c t") #'org-todo)
+
+;; Setting Up Capture
+(setq org-default-notes-file "~/OneDrive/Research/Projects/management/projects.org")
+
+;; Clocking
+(setq org-clock-persist 'history)
+(org-clock-persistence-insinuate)
+(setq org-log-done t)
+
+;; Grabbing links
+(add-hook 'org-mode-hook (lambda () 
+  (define-key org-mode-map (kbd "C-c g") 'org-mac-grab-link)))
+
+;; ____________________________________________________________________________
+
 
 ;; turn on color code support in shell mode
 (ansi-color-for-comint-mode-on)
@@ -40,17 +102,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (misterioso)))
+ '(custom-enabled-themes '(misterioso))
  '(inhibit-startup-screen t)
- '(package-selected-packages (quote (auctex)))
+ '(org-agenda-files '("~/OneDrive/Research/Projects/management/projects.org"))
+ '(package-selected-packages '(org auctex))
  '(transient-mark-mode t))
 
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+
 ;; Set how to switch between windows
 (global-set-key (kbd "C-c <left>")  'windmove-left)
 (global-set-key (kbd "C-c <right>") 'windmove-right)
