@@ -1,4 +1,3 @@
-
 ;; -*- mode: elisp -*-
 ;; translate control sequences as text is inserted in shell mode
 ;; ____________________________________________________________________________
@@ -17,6 +16,7 @@
 ;; You may delete these explanatory comments.
 (package-initialize)
 (add-to-list 'load-path "~/.emacs.d/lisp/")
+(add-to-list 'load-path "~/.emacs.d/elisp/")
 ;; load emacs 24's package system. Add MELPA repository.
 (when (>= emacs-major-version 24)
   (require 'package)
@@ -39,8 +39,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:height 160
- :family "Source Code Pro")))))
+ '(default ((t (:height 160 :family "Source Code Pro")))))
 
 ;; ____________________________________________________________________________
 
@@ -82,8 +81,12 @@
 (setq org-log-done t)
 
 ;; Grabbing links
+(require 'org-contrib)
 (add-hook 'org-mode-hook (lambda () 
   (define-key org-mode-map (kbd "C-c g") 'org-mac-grab-link)))
+
+;; Line wrap
+(add-hook 'text-mode-hook 'turn-on-visual-line-mode)
 
 ;; ____________________________________________________________________________
 
@@ -105,7 +108,9 @@
  '(custom-enabled-themes '(misterioso))
  '(inhibit-startup-screen t)
  '(org-agenda-files '("~/OneDrive/Research/Projects/management/projects.org"))
- '(package-selected-packages '(org auctex))
+ '(org-modules
+   '(ol-bbdb ol-bibtex ol-docview ol-doi ol-eww ol-gnus ol-info ol-irc ol-mhe ol-rmail ol-w3m org-mac-link))
+ '(package-selected-packages '(org-contrib org auctex))
  '(transient-mark-mode t))
 
 
