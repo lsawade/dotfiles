@@ -46,6 +46,13 @@
 
 ;;________________ ORG MODE ___________________________________________________
 
+;; Set files to be tracked by the agenda
+;;; Agenda settings
+(custom-set-variables
+ '(org-agenda-files (list
+                     "~/org/projects.org"
+                     "~/org/archive.org")))
+
 ;; Disable the splash screen (to enable it agin, replace the t with 0)
 (setq inhibit-splash-screen t)
 
@@ -88,6 +95,19 @@
 ;; Line wrap
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
 
+;; Make lines always fit into the screen
+(add-hook 'org-mode-hook 'visual-line-mode)
+
+;; Visual indent
+(add-hook 'org-mode-hook 'org-indent-mode)
+
+;; Enables deeper headers and other files for org-mode-refile
+(custom-set-variables
+ '(org-refile-targets '((nil :maxlevel . 9)
+                           (org-agenda-files :maxlevel . 9))))
+;;; Agenda settings
+(setq org-outline-path-complete-in-steps nil)         ; Refile in a single go
+(setq org-refile-use-outline-path t)                  ; Show full paths for refiling
 ;; ____________________________________________________________________________
 
 
