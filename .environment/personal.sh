@@ -7,3 +7,8 @@ export PYTHONSTARTUP="${HOME}/lwsspy/lwsspy/startupfiles/python.py"
 export DISPLAY=:0
 export PM="${HOME}/OneDrive/Research/Projects/management"
 
+# GMT
+export GMTHOME=/Applications/GMT-6.3.0.app/Contents/Resources
+export PROJ_LIB=$GMTHOME/share/proj
+export GS_LIB=$GMTHOME/share/ghostscript/Resource/Init
+export MAGICK_CONFIGURE_PATH=$GMTHOME/lib/GraphicsMagick/config

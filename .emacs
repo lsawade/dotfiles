@@ -10,6 +10,24 @@
 ;; ~/Library/Preferences/Aquamacs Emacs/Preferences
 ;; _____________________________________________________________________________
 
+;; _____________ DONT START SERVER IF already Running __________________________
+
+(require 'server)
+(or (server-running-p)
+    (server-start))
+;; _____________________________________________________________________________
+
+;; _____________ TAB VIEW MODE _________________________________________________
+;; (tab-bar-mode nil)
+;; (global-set-key [M-left] 'tabbar-backward-tab)
+;; (global-set-key [M-right] 'tabbar-forward-tab)
+;; _____________________________________________________________________________
+
+;; _____________ AUTO-RELOAD BUFFERS IF ONE BUFFER IS SAVED ____________________
+(global-auto-revert-mode t)
+;; _____________________________________________________________________________
+
+;; _____________ Package installation repos ____________________________________
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
@@ -56,10 +74,13 @@
 ;; Disable the splash screen (to enable it agin, replace the t with 0)
 (setq inhibit-splash-screen t)
 
+;; Set agenda in current window
+(setq org-agenda-window-setup 'current-window)
+
 ;; Enable transient mark mode
 (transient-mark-mode 1)
 
-;;;;Org mode configuration
+;;Org mode configuration
 ;; Enable Org mode
 (require 'org)
 ;; Make Org mode work with files ending in .org
@@ -80,7 +101,7 @@
 (global-set-key (kbd "C-c t") #'org-todo)
 
 ;; Setting Up Capture
-(setq org-default-notes-file "~/OneDrive/Research/Projects/management/projects.org")
+(setq org-default-notes-file "~/org/projects.org")
 
 ;; Clocking
 (setq org-clock-persist 'history)
@@ -108,6 +129,13 @@
 ;;; Agenda settings
 (setq org-outline-path-complete-in-steps nil)         ; Refile in a single go
 (setq org-refile-use-outline-path t)                  ; Show full paths for refiling
+
+;; If no file is selected open the org mode agenda
+;; (add-hook 'after-init-hook 'org-agenda-list)
+;; (progn
+;;   (org-agenda nil "a")
+;;   (org-agenda-day-view))
+
 ;; ____________________________________________________________________________
 
 
@@ -127,7 +155,6 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes '(misterioso))
  '(inhibit-startup-screen t)
- '(org-agenda-files '("~/OneDrive/Research/Projects/management/projects.org"))
  '(org-modules
    '(ol-bbdb ol-bibtex ol-docview ol-doi ol-eww ol-gnus ol-info ol-irc ol-mhe ol-rmail ol-w3m org-mac-link))
  '(package-selected-packages '(org-contrib org auctex))
@@ -196,9 +223,6 @@
 (setq TeX-view-program-list
      '(("PDF Viewer" "/Applications/Skim.app/Contents/SharedSupport/displayline -b -g %n %o %b")))
 
-(server-start); start emacs in server mode so that skim can talk to it
-
-
 ;; Stop creating ~ files or # files
 (setq make-backup-files nil) ; stop creating ~ files
 
@@ -217,3 +241,5 @@
 ;;   (defun my-matlab-shell-mode-hook ()
 ;;	'())
 ;;   (add-hook 'matlab-shell-mode-hook 'my-matlab-shell-mode-hook)
+
+
