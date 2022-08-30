@@ -1,6 +1,6 @@
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
-(setq initial-buffer-choice "~/org/projects.org")
+(setq initial-buffer-choice "~/org/general.org")
 
 (defun my-init-hook ()
   (split-window-right)

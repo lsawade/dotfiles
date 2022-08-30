@@ -5,7 +5,7 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 export TMPDIR=/tmp
 export PYTHONSTARTUP="${HOME}/lwsspy/lwsspy/startupfiles/python.py"
 export DISPLAY=:0
-export PM="${HOME}/OneDrive/Research/Projects/management"
+export PM="${HOME}/PDrive/Research/Projects/management"
 
 # GMT
 export GMTHOME=/Applications/GMT-6.3.0.app/Contents/Resources

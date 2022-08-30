@@ -32,6 +32,9 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
+;; Comment/uncomment this line to enable MELPA Stable if desired.  See `package-archive-priorities`
+;; and `package-pinned-packages`. Most users will not need or want to do this.
+;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (package-initialize)
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 (add-to-list 'load-path "~/.emacs.d/elisp/")
@@ -42,7 +45,10 @@
    'package-archives
    ;; '("melpa" . "http://stable.melpa.org/packages/") ; many packages won't show if using stable
    '("melpa" . "https://melpa.org/packages/")
-   t))
+   t)
+  ;; (package-refresh-contents)		
+  )
+   
 
 ;;________________ WINDOW SIZE & SETUP ________________________________________
 
@@ -67,9 +73,49 @@
 ;; Set files to be tracked by the agenda
 ;;; Agenda settings
 (custom-set-variables
- '(org-agenda-files (list
-                     "~/org/projects.org"
-                     "~/org/archive.org")))
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-enabled-themes '(misterioso))
+ '(inhibit-startup-screen t)
+ '(org-agenda-files
+   '("/Users/lucassawade/org/birthdays.org" "/Users/lucassawade/org/archive.org" "/Users/lucassawade/org/GF.org" "/Users/lucassawade/org/agenda.org"))
+ '(org-capture-templates
+   '(("t" "timeblock" entry
+      (file+function "~/org/timeblock.org" org-reverse-datetree-goto-date-in-file)
+      "**** %? 
+<%<%Y-%m-%d %a %H:00>>--<%<%Y-%m-%d %a %H:00>>")
+     ("T" "full-timeblock" entry
+      (file+function "~/org/timeblock.org" org-reverse-datetree-goto-date-in-file)
+      "**** Check-in 
+<%<%Y-%m-%d %a 8:00>>--<%<%Y-%m-%d %a 8:30>>
+- [ ] Fill out time blocks
+- [ ] Check emails
+**** %? 
+<%<%Y-%m-%d %a 8:30>>--<%<%Y-%m-%d %a 10:00>>
+**** 
+<%<%Y-%m-%d %a 10:00>>--<%<%Y-%m-%d %a 12:00>>
+**** Lunch 
+<%<%Y-%m-%d %a 12:00>>--<%<%Y-%m-%d %a 13:00>>
+**** 
+<%<%Y-%m-%d %a 13:00>>--<%<%Y-%m-%d %a 15:00>>
+**** 
+<%<%Y-%m-%d %a 15:00>>--<%<%Y-%m-%d %a 17:00>>
+**** 
+<%<%Y-%m-%d %a 17:00>>--<%<%Y-%m-%d %a 19:00>>")))
+ '(org-modules
+   '(ol-bbdb ol-bibtex ol-docview ol-doi ol-eww ol-gnus ol-info ol-irc ol-mhe ol-rmail ol-w3m org-mac-link))
+ '(org-refile-targets '((nil :maxlevel . 9) (org-agenda-files :maxlevel . 9)))
+ '(package-selected-packages '(org-reverse-datetree ## org-contrib org auctex))
+ '(transient-mark-mode t))
+
+;; Sorting the Agenda in terms of Timeblocks
+(setq org-agenda-sorting-strategy '((agenda habit-down time-up ts-up
+     priority-down category-keep)
+  (todo priority-down category-keep)
+  (tags priority-down category-keep)
+  (search category-keep)))
 
 ;; Disable the splash screen (to enable it agin, replace the t with 0)
 (setq inhibit-splash-screen t)
@@ -113,6 +159,15 @@
 (add-hook 'org-mode-hook (lambda () 
   (define-key org-mode-map (kbd "C-c g") 'org-mac-grab-link)))
 
+
+;; (defun timeblock-hook ()
+;;   (if (string= (org-capture-get :description)
+;;                "timeblock")     ;Must match the description in the template
+;;       (org-schedule 0 (format-time-string "%Y-%m-%d"))))
+
+;; (add-hook 'org-capture-before-finalize-hook 'timeblock-hook)
+
+
 ;; Line wrap
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
 
@@ -123,9 +178,7 @@
 (add-hook 'org-mode-hook 'org-indent-mode)
 
 ;; Enables deeper headers and other files for org-mode-refile
-(custom-set-variables
- '(org-refile-targets '((nil :maxlevel . 9)
-                           (org-agenda-files :maxlevel . 9))))
+
 ;;; Agenda settings
 (setq org-outline-path-complete-in-steps nil)         ; Refile in a single go
 (setq org-refile-use-outline-path t)                  ; Show full paths for refiling
@@ -148,17 +201,7 @@
 (setq comint-prompt-read-only t)
 
 ;; set variables
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(misterioso))
- '(inhibit-startup-screen t)
- '(org-modules
-   '(ol-bbdb ol-bibtex ol-docview ol-doi ol-eww ol-gnus ol-info ol-irc ol-mhe ol-rmail ol-w3m org-mac-link))
- '(package-selected-packages '(org-contrib org auctex))
- '(transient-mark-mode t))
+
 
 
 ;; Set how to switch between windows
@@ -241,5 +284,4 @@
 ;;   (defun my-matlab-shell-mode-hook ()
 ;;	'())
 ;;   (add-hook 'matlab-shell-mode-hook 'my-matlab-shell-mode-hook)
-
 
