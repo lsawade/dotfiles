@@ -13,10 +13,10 @@ __powerline() {
     readonly COLOR_SUCCESS='\[\033[1;38;5;2m\]' # green
     readonly COLOR_FAILURE='\[\033[1;38;5;1m\]' # red
 
-    readonly SYMBOL_GIT_BRANCH='⑂'
+    readonly SYMBOL_GIT_BRANCH='|/-'
     readonly SYMBOL_GIT_MODIFIED='+'
-    readonly SYMBOL_GIT_PUSH='↑'
-    readonly SYMBOL_GIT_PULL='↓'
+    readonly SYMBOL_GIT_PUSH='^'
+    readonly SYMBOL_GIT_PULL='v'
 
     if [[ -z "$PS_SYMBOL" ]]; then
       case "$(uname)" in
@@ -71,8 +71,8 @@ __powerline() {
         fi
 
         # local cwd="$COLOR_CWD\w$RESET"
-        local cwd="[${COLOR_PINK}${PROMPTUSER}${RESET} @ ${COLOR_HOST}${PROMPTHOST}${RESET}: ${COLOR_CWD}\W${RESET}]"
-
+        local cwd="\n[${COLOR_CWD}\w${RESET}]\n"
+	local userhost="${COLOR_PINK}${PROMPTUSER}${RESET} @ ${COLOR_HOST}${PROMPTHOST}${RESET}"
         # Bash by default expands the content of PS1 unless promptvars is disabled.
         # We must use another layer of reference to prevent expanding any user
         # provided strings, which would cause security issues.
@@ -88,9 +88,9 @@ __powerline() {
 	
 	if [ -z "$CONDA_DEFAULT_ENV" ]
 	then
-	    PS1="${cwd}${git}${symbol}"
+	    PS1="${cwd}${userhost}${git}${symbol}"
 	else
-	    PS1="($CONDA_DEFAULT_ENV)${cwd}${git}${symbol}"
+	    PS1="${cwd}($CONDA_DEFAULT_ENV) ${userhost}${git}${symbol}"
 	fi
         
     }

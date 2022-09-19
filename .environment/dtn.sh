@@ -1,4 +1,4 @@
 #!/bin/bash
 
-MODULES="python/3.7.0-anaconda3-2018.12 "
+MODULES=""
 PYTHONSTARTUP="${HOME}/lwsspy_dtn/lwsspy/startupfiles/python.py"

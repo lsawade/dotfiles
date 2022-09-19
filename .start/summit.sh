@@ -2,7 +2,7 @@
 
 module purge
 module load ${MODULES}
-. /sw/andes/python/3.7/anaconda-base/etc/profile.d/conda.sh
+# . /sw/andes/python/3.7/anaconda-base/etc/profile.d/conda.sh
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -20,3 +20,5 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 shopt -u progcomp
+
+conda activate lwsspy

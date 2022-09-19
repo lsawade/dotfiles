@@ -42,7 +42,7 @@ if [[ $HOSTNAME == "geo-lsawade19" ]] || [[ $HOSTNAME == "Mis-MacBook-Pro.local"
     source "${ALIASDIR}/personal.sh"
     source "${STARTDIR}/personal.sh"
 
-    PROMPTUSER="itsme"
+    PROMPTUSER=$USER
     PROMPTHOST="mac"
 
 elif [[ $HOSTNAME == *"andes"* ]]; then
@@ -55,7 +55,7 @@ elif [[ $HOSTNAME == *"andes"* ]]; then
     source "${ALIASDIR}/andes.sh"
     source "${STARTDIR}/andes.sh"
 
-    PROMPTUSER="itsme"
+    PROMPTUSER=$USER
     PROMPTHOST="andes"
 
 
@@ -70,7 +70,7 @@ elif [[ $HOSTNAME == *"dtn"* ]]; then
     source "${ALIASDIR}/dtn.sh"
     source "${STARTDIR}/dtn.sh"
 
-    PROMPTUSER="itsme"
+    PROMPTUSER=$USER
     PROMPTHOST="dtn"
 
 elif [[ $HOSTNAME == *"login"* ]]; then
@@ -84,19 +84,20 @@ elif [[ $HOSTNAME == *"login"* ]]; then
     source "${ALIASDIR}/summit.sh"
     source "${STARTDIR}/summit.sh"
 
-    PROMPTUSER="itsme"
+    PROMPTUSER=$USER
     PROMPTHOST="summit"
 
 
-elif [[ $HOSTNAME == *"tiger"* ]]; then
+elif [[ $HOSTNAME == *"tiger"* ]] || [[ $HOSTNAME == *"tigressdata"* ]]; then
 
     # Tiger General
     source "${ENVIRDIR}/tiger.sh"
     source "${ALIASDIR}/tiger.sh"
     source "${STARTDIR}/tiger.sh"
 
-    PROMPTUSER="itsme"
+    PROMPTUSER=$USER
     PROMPTHOST=$(echo $HOSTNAME | awk --field-separator='.' '{print $1}')
+
 
 elif [[ $HOSTNAME == *"vrientius"* ]]; then
 
@@ -107,7 +108,7 @@ elif [[ $HOSTNAME == *"vrientius"* ]]; then
     source "${ALIASDIR}/personal.sh"
     source "${STARTDIR}/vrientius.sh"
 
-    PROMPTUSER="itsme"
+    PROMPTUSER=$USER
     PROMPTHOST="vrientius"
 
 elif [[ $HOSTNAME == *"traverse"* ]]; then
@@ -117,7 +118,7 @@ elif [[ $HOSTNAME == *"traverse"* ]]; then
     source "${ALIASDIR}/traverse.sh"
     source "${STARTDIR}/traverse.sh"
 
-    PROMPTUSER="itsme"
+    PROMPTUSER=$USER
     PROMPTHOST="traverse"
 
 else
