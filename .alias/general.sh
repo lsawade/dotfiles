@@ -28,7 +28,6 @@ alias hhh="cd $HOME"
 alias g="git"
 alias h="history"
 alias condout="conda deactivate && conda deactivate"
-alias python="python3"
 alias rbash="source ${HOME}/.bashrc"
 # Convenience function to clear pycache files 
 alias pyclean='find . -type f -name "*.py[co]" -delete -o -type d -name __pycache__ -delete'

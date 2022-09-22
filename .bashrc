@@ -118,6 +118,7 @@ elif [[ $HOSTNAME == *"traverse"* ]]; then
     source "${ENVIRDIR}/traverse.sh"
     source "${ALIASDIR}/traverse.sh"
     source "${STARTDIR}/traverse.sh"
+    source "${PATHSDIR}/traverse.sh"
 
     PROMPTUSER=$USER
     PROMPTHOST="traverse"
@@ -136,3 +137,9 @@ source "${STARTDIR}/general.sh"
 source ~/.bash-powerline.sh
 
 
+
+
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
