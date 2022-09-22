@@ -10,6 +10,52 @@
 ;; ~/Library/Preferences/Aquamacs Emacs/Preferences
 ;; _____________________________________________________________________________
 
+;; Weird fix for Linux
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-enabled-themes (quote (misterioso)))
+ '(gnutls-algorithm-priority "normal:-vers-tls1.3")
+ '(inhibit-startup-screen t)
+ '(org-agenda-files
+   (quote
+    ("/Users/lucassawade/org/birthdays.org" "/Users/lucassawade/org/archive.org" "/Users/lucassawade/org/GF.org" "/Users/lucassawade/org/agenda.org")))
+ '(org-capture-templates
+   (quote
+    (("t" "timeblock" entry
+      (file+function "~/org/timeblock.org" org-reverse-datetree-goto-date-in-file)
+      "**** %? 
+<%<%Y-%m-%d %a %H:00>>--<%<%Y-%m-%d %a %H:00>>")
+     ("T" "full-timeblock" entry
+      (file+function "~/org/timeblock.org" org-reverse-datetree-goto-date-in-file)
+      "**** Check-in 
+<%<%Y-%m-%d %a 8:00>>--<%<%Y-%m-%d %a 8:30>>
+- [ ] Fill out time blocks
+- [ ] Check emails
+**** %? 
+<%<%Y-%m-%d %a 8:30>>--<%<%Y-%m-%d %a 10:00>>
+**** 
+<%<%Y-%m-%d %a 10:00>>--<%<%Y-%m-%d %a 12:00>>
+**** Lunch 
+<%<%Y-%m-%d %a 12:00>>--<%<%Y-%m-%d %a 13:00>>
+**** 
+<%<%Y-%m-%d %a 13:00>>--<%<%Y-%m-%d %a 15:00>>
+**** 
+<%<%Y-%m-%d %a 15:00>>--<%<%Y-%m-%d %a 17:00>>
+**** 
+<%<%Y-%m-%d %a 17:00>>--<%<%Y-%m-%d %a 19:00>>"))))
+ '(org-modules
+   (quote
+    (ol-bbdb ol-bibtex ol-docview ol-doi ol-eww ol-gnus ol-info ol-irc ol-mhe ol-rmail ol-w3m org-mac-link)))
+ '(org-refile-targets
+   (quote
+    ((nil :maxlevel . 9)
+     (org-agenda-files :maxlevel . 9))))
+ '(package-selected-packages (quote (org-modern go-autocomplete)))
+ '(transient-mark-mode t))
+
 ;; _____________ DONT START SERVER IF already Running __________________________
 
 (require 'server)
@@ -41,13 +87,13 @@
 ;; load emacs 24's package system. Add MELPA repository.
 (when (>= emacs-major-version 24)
   (require 'package)
-  (add-to-list
-   'package-archives
-   ;; '("melpa" . "http://stable.melpa.org/packages/") ; many packages won't show if using stable
-   '("melpa" . "https://melpa.org/packages/")
-   t)
   ;; (package-refresh-contents)		
   )
+
+(add-to-list 'package-archives '("melpa-stable" . "http://www.mirrorservice.org/sites/melpa.org/packages/") t)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/packages/") t)
+(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
    
 
 ;;________________ WINDOW SIZE & SETUP ________________________________________
@@ -72,43 +118,7 @@
 
 ;; Set files to be tracked by the agenda
 ;;; Agenda settings
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(misterioso))
- '(inhibit-startup-screen t)
- '(org-agenda-files
-   '("/Users/lucassawade/org/birthdays.org" "/Users/lucassawade/org/archive.org" "/Users/lucassawade/org/GF.org" "/Users/lucassawade/org/agenda.org"))
- '(org-capture-templates
-   '(("t" "timeblock" entry
-      (file+function "~/org/timeblock.org" org-reverse-datetree-goto-date-in-file)
-      "**** %? 
-<%<%Y-%m-%d %a %H:00>>--<%<%Y-%m-%d %a %H:00>>")
-     ("T" "full-timeblock" entry
-      (file+function "~/org/timeblock.org" org-reverse-datetree-goto-date-in-file)
-      "**** Check-in 
-<%<%Y-%m-%d %a 8:00>>--<%<%Y-%m-%d %a 8:30>>
-- [ ] Fill out time blocks
-- [ ] Check emails
-**** %? 
-<%<%Y-%m-%d %a 8:30>>--<%<%Y-%m-%d %a 10:00>>
-**** 
-<%<%Y-%m-%d %a 10:00>>--<%<%Y-%m-%d %a 12:00>>
-**** Lunch 
-<%<%Y-%m-%d %a 12:00>>--<%<%Y-%m-%d %a 13:00>>
-**** 
-<%<%Y-%m-%d %a 13:00>>--<%<%Y-%m-%d %a 15:00>>
-**** 
-<%<%Y-%m-%d %a 15:00>>--<%<%Y-%m-%d %a 17:00>>
-**** 
-<%<%Y-%m-%d %a 17:00>>--<%<%Y-%m-%d %a 19:00>>")))
- '(org-modules
-   '(ol-bbdb ol-bibtex ol-docview ol-doi ol-eww ol-gnus ol-info ol-irc ol-mhe ol-rmail ol-w3m org-mac-link))
- '(org-refile-targets '((nil :maxlevel . 9) (org-agenda-files :maxlevel . 9)))
- '(package-selected-packages '(org-reverse-datetree ## org-contrib org auctex))
- '(transient-mark-mode t))
+
 
 ;; Sorting the Agenda in terms of Timeblocks
 (setq org-agenda-sorting-strategy '((agenda habit-down time-up ts-up
@@ -155,9 +165,9 @@
 (setq org-log-done t)
 
 ;; Grabbing links
-(require 'org-contrib)
-(add-hook 'org-mode-hook (lambda () 
-  (define-key org-mode-map (kbd "C-c g") 'org-mac-grab-link)))
+;; (require 'org-contrib)
+;; (add-hook 'org-mode-hook (lambda () 
+;;   (define-key org-mode-map (kbd "C-c g") 'org-mac-grab-link)))
 
 
 ;; (defun timeblock-hook ()
