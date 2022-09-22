@@ -73,7 +73,7 @@ elif [[ $HOSTNAME == *"dtn"* ]]; then
     PROMPTUSER=$USER
     PROMPTHOST="dtn"
 
-elif [[ $HOSTNAME == *"login"* ]]; then
+elif [[ $HOSTNAME == *"login"* ]] || [[ $HOSTNAME == *"batch"* ]]; then
 
     # ORNL General
     source "${ENVIRDIR}/ornl.sh"
@@ -83,6 +83,7 @@ elif [[ $HOSTNAME == *"login"* ]]; then
     source "${ENVIRDIR}/summit.sh"
     source "${ALIASDIR}/summit.sh"
     source "${STARTDIR}/summit.sh"
+    source "${PATHSDIR}/summit.sh"
 
     PROMPTUSER=$USER
     PROMPTHOST="summit"
