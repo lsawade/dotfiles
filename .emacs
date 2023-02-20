@@ -119,6 +119,47 @@
 ;; Set files to be tracked by the agenda
 ;;; Agenda settings
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-enabled-themes '(misterioso))
+ '(inhibit-startup-screen t)
+ '(org-agenda-files
+   '("~/org/birthdays.org" "~/org/archive.org" "~/org/GF.org" "~/org/timeblock.org" "~/org/RF.org" "~/org/calendar.org"))
+ '(org-capture-templates
+   '(("t" "timeblock" entry
+      (file+function "~/org/timeblock.org" org-reverse-datetree-goto-date-in-file)
+      "**** %? 
+<%<%Y-%m-%d %a %H:00>>--<%<%Y-%m-%d %a %H:00>>")
+     ("T" "full-timeblock" entry
+      (file+function "~/org/timeblock.org" org-reverse-datetree-goto-date-in-file)
+      "**** Check-in 
+<%<%Y-%m-%d %a 8:00>>--<%<%Y-%m-%d %a 8:30>>
+- [ ] Fill out time blocks
+- [ ] Check emails
+- [ ] Check github notifications
+**** %? 
+<%<%Y-%m-%d %a 8:30>>--<%<%Y-%m-%d %a 10:00>>
+**** 
+<%<%Y-%m-%d %a 10:00>>--<%<%Y-%m-%d %a 12:00>>
+**** Lunch 
+<%<%Y-%m-%d %a 12:00>>--<%<%Y-%m-%d %a 13:00>>
+**** 
+<%<%Y-%m-%d %a 13:00>>--<%<%Y-%m-%d %a 15:00>>
+**** 
+<%<%Y-%m-%d %a 15:00>>--<%<%Y-%m-%d %a 17:00>>
+**** Check-out
+<%<%Y-%m-%d %a 17:00>>--<%<%Y-%m-%d %a 19:00>>
+- [ ] Check emails
+- [ ] Review hours
+- [ ] Check github notifications")))
+ '(org-modules
+   '(ol-bbdb ol-bibtex ol-docview ol-doi ol-eww ol-gnus ol-info ol-irc ol-mhe ol-rmail ol-w3m org-mac-link))
+ '(org-refile-targets '((nil :maxlevel . 9) (org-agenda-files :maxlevel . 9)))
+ '(package-selected-packages '(org-reverse-datetree ## org-contrib org auctex))
+ '(transient-mark-mode t))
 
 ;; Sorting the Agenda in terms of Timeblocks
 (setq org-agenda-sorting-strategy '((agenda habit-down time-up ts-up
