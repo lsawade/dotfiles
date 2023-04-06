@@ -21,4 +21,4 @@ unset __conda_setup
 
 shopt -u progcomp
 
-conda activate lwsspy
+conda activate gf
