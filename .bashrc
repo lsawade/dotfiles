@@ -123,6 +123,20 @@ elif [[ $HOSTNAME == *"traverse"* ]]; then
     PROMPTUSER=$USER
     PROMPTHOST="traverse"
 
+elif [[ $HOSTNAME == *"della"* ]]; then
+
+    # ORNL General
+    source "${ENVIRDIR}/della.sh"
+    source "${ALIASDIR}/della.sh"
+    source "${STARTDIR}/della.sh"
+    source "${PATHSDIR}/della.sh"
+
+    PROMPTUSER=$USER
+    if [[ $HOSTNAME == *"gpu"* ]]; then
+	PROMPTHOST="della-gpu"
+    else
+	PROMPTHOST="della-cpu"
+    fi
 else
     
     PROMPTUSER=${USER}
@@ -143,3 +157,4 @@ source ~/.bash-powerline.sh
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+alias config='/usr/bin/git --git-dir=/home/lsawade/.cfg/ --work-tree=/home/lsawade'
