@@ -4,7 +4,7 @@
 alias rssh="ssh -F /dev/null"
 
 # Princeton
-alias             addy="ssh -Y ${NETID}@${ADROIT}"
+alias                addy="ssh -Y ${NETID}@${ADROIT}"
 alias            tigercpu="ssh ${NETID}@${TIGERCPU}"
 alias            tigergpu="ssh ${NETID}@${TIGERGPU}"
 alias           vrientius="ssh -Y ${NETID}@${VRIENTIUS}"

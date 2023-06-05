@@ -79,16 +79,30 @@ elif [[ $HOSTNAME == *"login"* ]] || [[ $HOSTNAME == *"batch"* ]]; then
     source "${ENVIRDIR}/ornl.sh"
     source "${ALIASDIR}/ornl.sh"
 
-    # Summit only
-    source "${ENVIRDIR}/summit.sh"
-    source "${ALIASDIR}/summit.sh"
-    source "${STARTDIR}/summit.sh"
-    source "${PATHSDIR}/summit.sh"
+    # Both Summit and Frontier use "login" for the batch system
+    # However Frontier sets the HOSTTYPE environment variable
+    if [[ -z $HOSTTYPE ]] 
+    then
+	# Summit only
+	source "${ENVIRDIR}/summit.sh"
+	source "${ALIASDIR}/summit.sh"
+        source "${STARTDIR}/summit.sh"
+        source "${PATHSDIR}/summit.sh"
+	PROMPTHOST="summit"
+    else
+	# Frontier only
+	source "${ENVIRDIR}/frontier.sh"
+	source "${ALIASDIR}/frontier.sh"
+        source "${STARTDIR}/frontier.sh"
+        source "${PATHSDIR}/frontier.sh"
+
+	PROMPTHOST="frontier"
+    fi
 
     PROMPTUSER=$USER
-    PROMPTHOST="summit"
 
 
+    
 elif [[ $HOSTNAME == *"tiger"* ]] || [[ $HOSTNAME == *"tigressdata"* ]]; then
 
     # Tiger General
@@ -151,10 +165,6 @@ source "${STARTDIR}/general.sh"
 source ~/.bash-powerline.sh
 
 
-
-
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-alias config='/usr/bin/git --git-dir=/home/lsawade/.cfg/ --work-tree=/home/lsawade'
