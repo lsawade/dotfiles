@@ -15,8 +15,9 @@ alias      tigressdata="ssh -X ${NETID}@${TIGRESSDATA}"
 alias tigressgateway="ssh -NCf ${NETID}@${TIGRESSGATEWAY}"
 
 # ORNL
-alias summithome="ssh ${ORNLUSER}@${ORNLHOME}"
+alias       ornl="ssh ${ORNLUSER}@${ORNLHOME}"
 alias     summit="ssh ${ORNLUSER}@${SUMMIT}"
+alias   frontier="ssh ${ORNLUSER}@${FRONTIER}"
 alias      andes="ssh ${ORNLUSER}@${ANDES}"
 alias        dtn="ssh ${ORNLUSER}@${DTN}"
 

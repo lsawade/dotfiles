@@ -18,3 +18,4 @@ AOSGIT=$HOME/PDrive/Princeton/Academic/Courses/AOS551/GIT
 
 # Some directories
 export GCMT3D=$HOME/PDrive/Research/Projects/GCMT3D
+export INCITE=$HOME/PDrive/Research/Projects/INCITE

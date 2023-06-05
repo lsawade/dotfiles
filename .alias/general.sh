@@ -3,7 +3,7 @@
 # ------ Aliases -----------------------------------
 
 # For dotfiles
-alias config="/usr/bin/git --git-dir=${HOME}/.cfg/ --work-tree=${HOME}"
+ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # For safety
 alias ln='ln -s'
@@ -29,6 +29,7 @@ alias g="git"
 alias h="history"
 alias condout="conda deactivate && conda deactivate"
 alias rbash="source ${HOME}/.bashrc"
+
 # Convenience function to clear pycache files 
 alias pyclean='find . -type f -name "*.py[co]" -delete -o -type d -name __pycache__ -delete'
 

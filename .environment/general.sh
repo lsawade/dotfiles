@@ -23,6 +23,7 @@ export TIGRESSGATEWAY="tigressgateway.princeton.edu"
 export ORNLUSER="lsawade"
 export ORNLHOME="home.ccs.ornl.gov"
 export SUMMIT="summit.olcf.ornl.gov"
+export FRONTIER="frontier.olcf.ornl.gov"
 export ANDES="andes.olcf.ornl.gov"
 export DTN="dtn.ccs.ornl.gov"
 
