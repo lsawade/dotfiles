@@ -81,7 +81,7 @@ elif [[ $HOSTNAME == *"login"* ]] || [[ $HOSTNAME == *"batch"* ]]; then
 
     # Both Summit and Frontier use "login" for the batch system
     # However Frontier sets the HOSTTYPE environment variable
-    if [[ -z $HOSTTYPE ]] 
+    if [[ $LMOD_SYSTEM_NAME == "summit" ]] 
     then
 	# Summit only
 	source "${ENVIRDIR}/summit.sh"
@@ -90,6 +90,7 @@ elif [[ $HOSTNAME == *"login"* ]] || [[ $HOSTNAME == *"batch"* ]]; then
         source "${PATHSDIR}/summit.sh"
 	PROMPTHOST="summit"
     else
+
 	# Frontier only
 	source "${ENVIRDIR}/frontier.sh"
 	source "${ALIASDIR}/frontier.sh"
