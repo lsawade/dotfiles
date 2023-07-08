@@ -4,7 +4,7 @@
 alias rssh="ssh -F /dev/null"
 
 # Princeton
-alias             addy="ssh -Y ${NETID}@${ADROIT}"
+alias                addy="ssh -Y ${NETID}@${ADROIT}"
 alias            tigercpu="ssh ${NETID}@${TIGERCPU}"
 alias            tigergpu="ssh ${NETID}@${TIGERGPU}"
 alias           vrientius="ssh -Y ${NETID}@${VRIENTIUS}"
@@ -15,8 +15,9 @@ alias      tigressdata="ssh -X ${NETID}@${TIGRESSDATA}"
 alias tigressgateway="ssh -NCf ${NETID}@${TIGRESSGATEWAY}"
 
 # ORNL
-alias summithome="ssh ${ORNLUSER}@${ORNLHOME}"
+alias       ornl="ssh ${ORNLUSER}@${ORNLHOME}"
 alias     summit="ssh ${ORNLUSER}@${SUMMIT}"
+alias   frontier="ssh ${ORNLUSER}@${FRONTIER}"
 alias      andes="ssh ${ORNLUSER}@${ANDES}"
 alias        dtn="ssh ${ORNLUSER}@${DTN}"
 
