@@ -33,7 +33,7 @@ export NOBACKUP="${HOME}/nobackup"
 # SEISMIC DATA:
 # ALL DATA SHOULD BE DOWNLOADED WITH 200 min since event for
 # consistency
-export GCMT="${HOME}/GCMT"
+#export GCMT="${HOME}/GCMT"
 export SOBSERVED="${HOME}/SEISDATA/OBSERVED"
 export SMDATA="${HOME}/SEISDATA/SHAKEMOVIE_DATA"
 export M25DATA="${HOME}/SEISDATA/M25"

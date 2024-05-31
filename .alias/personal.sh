@@ -12,3 +12,10 @@ alias pm="emacs ${PM}/org/general.org &"
 alias tb="emacs ${PM}/org/timeblock.org &"
 alias onotes="emacs ${PM}/org/notes.org &"
 alias org='emacs --load ~/.emacs.d/lisp/org-startup.el &'
+
+# go to directories
+alias gcmt3d='cd ${GCMT3D}'
+alias glimer='cd ${PYGLIMER}'
+alias incite='cd ${INCITE}'
+alias codes='cd ${CODES}'
+alias shakemovie='cd ${SHAKEMOVIE}'
