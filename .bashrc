@@ -35,7 +35,7 @@ source "${FUNCTDIR}/general.sh"
 source "${ALIASDIR}/general.sh"
 
 # Setting Host specific 
-if [[ $HOSTNAME == "geo-lsawade19" ]] || [[ $HOSTNAME == "Mis-MacBook-Pro.local" ]] || [[ $HOSTNAME == "vpn"*"princeton"* ]]; then
+if [[ $HOSTNAME == "geo-lsawade19" ]] || [[ $HOSTNAME == "Mis-MacBook-Pro.local" ]] || [[ $HOSTNAME == "vpn"*"princeton"* ]] || [[ $HOSTNAME == "PU-JMQC4G096F" ]]; then
     source "${PATHSDIR}/personal.sh"
     source "${ENVIRDIR}/personal.sh"
     source "${FUNCTDIR}/personal.sh"
