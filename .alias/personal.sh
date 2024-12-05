@@ -19,3 +19,7 @@ alias glimer='cd ${PYGLIMER}'
 alias incite='cd ${INCITE}'
 alias codes='cd ${CODES}'
 alias shakemovie='cd ${SHAKEMOVIE}'
+
+# Start/Stop global protect
+alias startGlobalProtect='launchctl load /Library/LaunchAgents/com.paloaltonetworks.gp.pangp*'
+alias stopGlobalProtect='launchctl unload /Library/LaunchAgents/com.paloaltonetworks.gp.pangp*'
