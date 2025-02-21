@@ -35,7 +35,7 @@ source "${FUNCTDIR}/general.sh"
 source "${ALIASDIR}/general.sh"
 
 # Setting Host specific 
-if [[ $HOSTNAME == "geo-lsawade19" ]] || [[ $HOSTNAME == "Mis-MacBook-Pro.local" ]] || [[ $HOSTNAME == "vpn"*"princeton"* ]]; then
+if [[ $HOSTNAME == "geo-lsawade19" ]] || [[ $HOSTNAME == "Mis-MacBook-Pro.local" ]] || [[ $HOSTNAME == "vpn"*"princeton"* ]] || [[ $HOSTNAME == "PU-JMQC4G096F" ]]; then
     source "${PATHSDIR}/personal.sh"
     source "${ENVIRDIR}/personal.sh"
     source "${FUNCTDIR}/personal.sh"
@@ -164,9 +164,4 @@ source "${STARTDIR}/general.sh"
 
 # Prompt settings
 source ~/.bash-powerline.sh
-
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
